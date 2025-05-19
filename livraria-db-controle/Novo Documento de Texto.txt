@@ -1,0 +1,23 @@
+-- Criação das tabelas
+CREATE TABLE produtos (
+  id INT PRIMARY KEY,
+  nome VARCHAR(100),
+  preco DECIMAL(10,2)
+);
+
+CREATE TABLE pedidos (
+  id INT PRIMARY KEY,
+  id_produto INT,
+  quantidade INT,
+  data_pedido DATE,
+  FOREIGN KEY (id_produto) REFERENCES produtos(id)
+);
+
+-- Inserção de dados
+INSERT INTO produtos VALUES (1, 'Livro A', 39.90);
+INSERT INTO produtos VALUES (2, 'Livro B', 29.90);
+INSERT INTO produtos VALUES (3, 'Livro C', 49.90);
+
+INSERT INTO pedidos VALUES (1, 1, 2, '2025-05-19');
+INSERT INTO pedidos VALUES (2, 2, 1, '2025-05-18');
+INSERT INTO pedidos VALUES (3, 3, 4, '2025-05-17');
